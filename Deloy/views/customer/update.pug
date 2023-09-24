@@ -1,0 +1,23 @@
+extends ../layout 
+
+block content 
+  h1 Create New Customer 
+  form(action=`/customer/update/${customer._id}`, method="post", enctype="multipart/form-data")
+    input(type="hidden", name='_id', value=customer._id) 
+    div 
+      label Fullname 
+      input(name="fullname", value=customer.fullname)
+    div 
+      label Email 
+      input(name="email", value=customer.email)
+    div 
+      label Password
+      input(type="password", name="password", value=customer.password)
+    if customer.image != undefined 
+      div 
+        img(src=`/images/${customer.image}`, alt=`${customer.fullname}` style="width:300px;height:auto;")
+    div 
+      label Image 
+      input(type="file", name="image")
+    div 
+      input(type="submit", value="Update")

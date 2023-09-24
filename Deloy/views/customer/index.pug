@@ -1,0 +1,34 @@
+extends ../layout
+
+block content 
+  h3 
+    a(href="/customer/create") Create New
+
+  form(action="/customer/search", method="get")
+    label Fullname 
+    input(name="fullname") 
+    input(type="submit", value="Search")
+  h1 Customer List 
+  table 
+    thead 
+      tr 
+        th ID 
+        th Fullname 
+        th Email 
+        th Image 
+        th Actions
+    tbody 
+      if customers != undefined && customers.length > 0
+        each item in customers 
+          tr 
+            td= item._id
+            td= item.fullname 
+            td= item.email 
+            td
+              if item.image != undefined 
+                img(src=`/images/${item.image}`, alt=`item.fullname` style='width:100px; height:auto;')
+            td 
+              a(href=`/customer/update/${item._id}`) Update
+      else 
+        tr 
+          td(colspan='5') No Data

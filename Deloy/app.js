@@ -10,8 +10,8 @@ var usersRouter = require('./routes/users');
 const customerRoute = require('./routes/customer');
 
 //kết nối mongodb
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/customerdb', {'useNewUrlParser': true});
+// const mongoose = require('mongoose');
+// mongoose.connect('mongodb://127.0.0.1:27017/customerdb', {'useNewUrlParser': true});
 
 var app = express();
 
